@@ -1,0 +1,1 @@
+spring:  datasource:    url: jdbc:postgresql://localhost/fernando    username: fernando    password: MANAGER1    driver-class-name: org.postgresql.Driver  jpa:    hibernate:      ddl-auto: create-drop    generate-ddl: true    show-sql: true
