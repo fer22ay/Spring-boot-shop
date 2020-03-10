@@ -25,6 +25,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Dependencia para actualizar en automatico al guardar 
+		<dependency> 
+			<groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-devtools</artifactId> 
+			</dependency> 
+		-->
 		<!-- Lombok para creacion automatica de getters y setters -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
