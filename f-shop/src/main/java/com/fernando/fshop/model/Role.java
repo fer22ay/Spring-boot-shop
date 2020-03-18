@@ -42,9 +42,6 @@ public class Role implements Serializable {
 	private String nameRol;
 	
 	private String descripcionRol;
-	
-	@ManyToOne
-	@JoinColumn(name = "idUser")
-	private User user;
+
 	
 }

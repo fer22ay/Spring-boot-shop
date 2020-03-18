@@ -34,7 +34,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user", schema = "fernando")
-@NamedQuery(name = "User.findByIdentificacion", query = "Select u from User u where u.identificacionUser =?1")
+@NamedQuery(name = "User.findByIdentificacion", query = "Select u from User u where u.idUser =?1")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -7735528990277734265L;
@@ -53,12 +53,7 @@ public class User implements Serializable {
 	
 	@Transient
 	private String confirmPasswordUser;
-	
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	@JoinTable(name = "user_roles", 
-			joinColumns = @JoinColumn(name="user_id")
-			,inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles;
+
 	
 	public User() {
 		

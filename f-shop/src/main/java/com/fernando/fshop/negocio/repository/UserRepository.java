@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 	 * @param idUser tipo String
 	 * @return
 	 */
-	public List<User> findByNombreUser(String nombreUser);
+	public List<User> findByLastNameUser(String lastNameUser);
 
 	/***
 	 * Definicion de metodo para buscar usuario por su identificacion
@@ -34,6 +34,6 @@ public interface UserRepository extends JpaRepository<User, String> {
 	 * @param identificacionUser
 	 * @return
 	 */
-	public User findByIdentificacion(String identificacionUser);
+	public User findByIdUser(String idUser);
 
 }
