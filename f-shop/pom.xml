@@ -25,12 +25,9 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- Dependencia para actualizar en automatico al guardar 
-		<dependency> 
-			<groupId>org.springframework.boot</groupId> 
-			<artifactId>spring-boot-devtools</artifactId> 
-			</dependency> 
-		-->
+		<!-- Dependencia para actualizar en automatico al guardar <dependency> 
+			<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-devtools</artifactId> 
+			</dependency> -->
 		<!-- Lombok para creacion automatica de getters y setters -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -47,6 +44,19 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
+
+		<!-- Swagger Configuration -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
