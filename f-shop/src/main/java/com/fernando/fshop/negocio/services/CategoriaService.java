@@ -6,6 +6,7 @@ package com.fernando.fshop.negocio.services;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fernando.fshop.model.Categoria;
 import com.fernando.fshop.negocio.repository.CategoriaRepository;
@@ -18,6 +19,7 @@ import com.fernando.fshop.negocio.repository.CategoriaRepository;
  *
  */
 @Service
+@Transactional(readOnly = true)
 public class CategoriaService {
 
 	private final CategoriaRepository categoriaRepository;
@@ -31,6 +33,7 @@ public class CategoriaService {
 	 * @param categoria
 	 * @return
 	 */
+	@Transactional
 	public Categoria create(Categoria categoria) {
 		return this.categoriaRepository.save(categoria);
 	}
@@ -40,6 +43,7 @@ public class CategoriaService {
 	 * @param categoria
 	 * @return
 	 */
+	@Transactional
 	public Categoria update(Categoria categoria) {
 		return this.categoriaRepository.save(categoria);
 	}
@@ -48,6 +52,7 @@ public class CategoriaService {
 	 * Metodo para realizar la operacion de eliminar una categoria
 	 * @param categoria
 	 */
+	@Transactional
 	public void delete(Categoria categoria) {
 		this.categoriaRepository.delete(categoria);
 	}
