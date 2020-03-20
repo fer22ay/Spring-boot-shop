@@ -25,18 +25,16 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "categoria", schema = "fernando")
-public class Categoria implements Serializable {/**
-	 * 
-	 */
+public class Categoria implements Serializable {
+
 	private static final long serialVersionUID = 6238328224883401064L;
 
+	/**
+	 * Tags para generar automaticamente el ID en la base de datos PostgreSQL.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idCategoria;
 	private String nombreCategoria;
-	
+
 }
-
-
-
-

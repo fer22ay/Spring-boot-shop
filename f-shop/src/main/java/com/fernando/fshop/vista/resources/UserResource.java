@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fernando.fshop.model.User;
+import com.fernando.fshop.model.Users;
 import com.fernando.fshop.negocio.services.UserService;
 import com.fernando.fshop.vista.vo.UserVO;
 
@@ -51,32 +51,32 @@ public class UserResource {
 	@ApiOperation(value = "Crear Usuario", notes = "Servicio para crear un nuevo usuario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario creado correctamente"),
 			@ApiResponse(code = 400, message = "Solicitud invalida") })
-	public ResponseEntity<User> createUser(@RequestBody UserVO userVo) {
-		User user = new User();
-		user.setFirstNameUser(userVo.getFirstNameUser());
-		user.setLastNameUser(userVo.getLastNameUser());
-		user.setEmailUser(userVo.getEmailUser());
-		user.setUserName(userVo.getUserName());
-		user.setPasswordUser(userVo.getPasswordUser());
-		return new ResponseEntity<>(this.userService.create(user), HttpStatus.CREATED);
+	public ResponseEntity<Users> createUser(@RequestBody UserVO userVo) {
+		Users users = new Users();
+		users.setFirstNameUser(userVo.getFirstNameUser());
+		users.setLastNameUser(userVo.getLastNameUser());
+		users.setEmailUser(userVo.getEmailUser());
+		users.setUserName(userVo.getUserName());
+		users.setPasswordUser(userVo.getPasswordUser());
+		return new ResponseEntity<>(this.userService.create(users), HttpStatus.CREATED);
 	}
 
 	@PutMapping("/idUser")
 	@ApiOperation(value = "Actualizar un usuario", notes = "Servicio para actualizar un usuario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario actualizado correctmente"),
 			@ApiResponse(code = 404, message = "Usuario no encontrado") })
-	public ResponseEntity<User> updateUser(@PathVariable("idUser") String idUser, UserVO userVo) {
-		User user = this.userService.findByIdentificacion(idUser);
-		if (user == null) {
-			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+	public ResponseEntity<Users> updateUser(@PathVariable("idUser") String idUser, UserVO userVo) {
+		Users users = this.userService.findByIdentificacion(idUser);
+		if (users == null) {
+			return new ResponseEntity<Users>(HttpStatus.NOT_FOUND);
 		} else {
-			user.setFirstNameUser(userVo.getFirstNameUser());
-			user.setLastNameUser(userVo.getLastNameUser());
-			user.setEmailUser(userVo.getEmailUser());
-			user.setUserName(userVo.getUserName());
-			user.setPasswordUser(userVo.getPasswordUser());
+			users.setFirstNameUser(userVo.getFirstNameUser());
+			users.setLastNameUser(userVo.getLastNameUser());
+			users.setEmailUser(userVo.getEmailUser());
+			users.setUserName(userVo.getUserName());
+			users.setPasswordUser(userVo.getPasswordUser());
 		}
-		return new ResponseEntity<>(this.userService.update(user), HttpStatus.OK);
+		return new ResponseEntity<>(this.userService.update(users), HttpStatus.OK);
 
 	}
 
@@ -85,9 +85,9 @@ public class UserResource {
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario eliminado correctamente"),
 			@ApiResponse(code = 404, message = "Usuario no encontrado") })
 	public void removeUser(@PathVariable("idUser") String idUser) {
-		User user = this.userService.findByIdentificacion(idUser);
-		if (user != null) {
-			this.userService.delete(user);
+		Users users = this.userService.findByIdentificacion(idUser);
+		if (users != null) {
+			this.userService.delete(users);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class UserResource {
 	@ApiOperation(value = "Listar Usuarios", notes = "Servicio para listar todos los usuario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuarios encontrados correctamente"),
 			@ApiResponse(code = 404, message = "Usuarios no encontrados") })
-	public ResponseEntity<List<User>> findAll() {
+	public ResponseEntity<List<Users>> findAll() {
 		return ResponseEntity.ok(this.userService.findAll());
 	}
 

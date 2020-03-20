@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.fernando.fshop.model.User;
+import com.fernando.fshop.model.Users;
 
 /**
  * Interface para definir las operaciones de la base de datos relacionadas con
@@ -18,7 +18,7 @@ import com.fernando.fshop.model.User;
  * @since 02 de marzo del 2020
  *
  */
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserRepository extends JpaRepository<Users, String> {
 
 	/***
 	 * Definicion de metodo para buscar los usuarios por nombre
@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 	 * @param idUser tipo String
 	 * @return
 	 */
-	public List<User> findByLastNameUser(String lastNameUser);
+	public List<Users> findByLastNameUser(String lastNameUser);
 
 	/***
 	 * Definicion de metodo para buscar usuario por su identificacion
@@ -34,6 +34,14 @@ public interface UserRepository extends JpaRepository<User, String> {
 	 * @param identificacionUser
 	 * @return
 	 */
-	public User findByIdUser(String idUser);
+	public Users findByIdUser(String idUser);
+
+	/**
+	 * Definicio de metodo para buscar al usuario por su nombre de usuario
+	 * 
+	 * @param userName type String
+	 * @return name of user
+	 */
+	public Users findByUserName(String username);
 
 }

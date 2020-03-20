@@ -5,11 +5,10 @@ package com.fernando.fshop.negocio.services;
 
 import java.util.List;
 
-import org.hibernate.type.TrueFalseType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fernando.fshop.model.User;
+import com.fernando.fshop.model.Users;
 import com.fernando.fshop.negocio.repository.UserRepository;
 
 /**
@@ -33,33 +32,33 @@ public class UserService {
 	/**
 	 * Metodo para realizar la operacion de guardar un usuario
 	 * 
-	 * @param user
+	 * @param users
 	 * @return
 	 */
 	@Transactional
-	public User create(User user) {
-		return this.userRepository.save(user);
+	public Users create(Users users) {
+		return this.userRepository.save(users);
 	}
 
 	/**
 	 * Metodo para realizar la operacion de actualizar un usuario
 	 * 
-	 * @param user
+	 * @param users
 	 * @return
 	 */
 	@Transactional
-	public User update(User user) {
-		return this.userRepository.save(user);
+	public Users update(Users users) {
+		return this.userRepository.save(users);
 	}
 
 	/**
 	 * Metodo para la realizar la operacion de eliminar un usuario
 	 * 
-	 * @param user
+	 * @param users
 	 */
 	@Transactional
-	public void delete(User user) {
-		this.userRepository.delete(user);
+	public void delete(Users users) {
+		this.userRepository.delete(users);
 	}
 
 	/**
@@ -68,7 +67,7 @@ public class UserService {
 	 * @param identificacionUser
 	 * @return
 	 */
-	public User findByIdentificacion(String idUser) {
+	public Users findByIdentificacion(String idUser) {
 		return this.userRepository.findByIdUser(idUser);
 	}
 
@@ -77,8 +76,16 @@ public class UserService {
 	 * 
 	 * @return
 	 */
-	public List<User> findAll() {
+	public List<Users> findAll() {
 		return this.userRepository.findAll();
 	}
 
+
 }
+
+
+
+
+
+
+
