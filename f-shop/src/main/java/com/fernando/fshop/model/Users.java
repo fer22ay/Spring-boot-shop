@@ -34,8 +34,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user", schema = "fernando")
-@NamedQuery(name = "User.findByIdentificacion", query = "Select u from User u where u.idUser =?1")
-public class User implements Serializable {
+@NamedQuery(name = "Users.findByIdentificacion", query = "Select u from Users u where u.idUser =?1")
+public class Users implements Serializable {
 
 	private static final long serialVersionUID = -7735528990277734265L;
 
@@ -55,7 +55,7 @@ public class User implements Serializable {
 	private String confirmPasswordUser;
 
 	
-	public User() {
+	public Users() {
 		
 	}
 
