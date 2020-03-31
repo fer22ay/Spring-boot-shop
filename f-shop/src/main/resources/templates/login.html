@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>:: Login ::</title>
+<!-- Required meta tags -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+
+<!-- Nuestro estilo -->
+<link rel="stylesheet" type="text/css" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}">
+
+<!-- Los iconos tipo Solid de Fontawesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+<body>
+
+	<div class="modal-dialog text-center">
+		<div class="col-sm-8 main-section">
+			<div class="modal-content">
+				<div class="col-12 user-img">
+					<img alt="Imagen de login" src="../images/docker.png" th:src="@{/images/docker.png}">
+				</div>
+				<form class="col-12" th:action="@{/app/login}" method="POST">
+					<div class="form-group" id="user-group">
+						<input type="text" class="form-control" placeholder="Username"
+							name="username" />
+					</div>
+					<div class="form-group" id="password-group">
+						<input type="password" class="form-control" placeholder="Password"
+							name="password" />
+					</div>
+					<button type="submit" class="btn btn-primary">
+						<i class="fas fa-sign-in-alt"></i> Ingresar
+					</button>
+				</form>
+				<div class="col-12 forgot">
+					<a href="#">Forgot password?</a>
+				</div>
+				<div th:if="${param.error}" class="alert alert-danger" role="alert">
+					<!-- <p th:if="${param.error}" th:text="${errorMsg}" class="error"></p> -->
+					Invalid username or password
+				</div>
+				<div th:if="${param.logout}" class="alert alert-success"
+					role="alert">You have been logged out
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
