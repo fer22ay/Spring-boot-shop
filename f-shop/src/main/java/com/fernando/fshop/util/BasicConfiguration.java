@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,7 +26,7 @@ import com.fernando.fshop.negocio.services.UserDetail;
 public class BasicConfiguration extends WebSecurityConfigurerAdapter{
 
 	@Autowired
-	private UserDetail userDetail;
+	private UserDetail userDetailsService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
@@ -42,17 +43,41 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetail).passwordEncoder(bcrypt);
+		auth.userDetailsService(userDetailsService).passwordEncoder(bcrypt);
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.anyRequest().authenticated()
-		.and()
+		http.csrf().disable()
+			.authorizeRequests()
+			.anyRequest().authenticated()
+			.and()
 		.formLogin()
-		.and()
-		.httpBasic();
+			.loginPage("/app/login").permitAll()
+			.failureUrl("/app/login?error=true")
+			.defaultSuccessUrl("/app/home",true)
+			.usernameParameter("username")
+			.passwordParameter("password")
+			.and()
+		.logout()
+			.permitAll()
+			.logoutSuccessUrl("/app/login?logout");
 	} 
+
+    @Override
+    public void configure(WebSecurity security) {
+        security.ignoring()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+    }
 	
 }
+
+
+
+
+
+
+
+
+
+

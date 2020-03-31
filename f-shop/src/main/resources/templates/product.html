@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<title>:: Products ::</title>
+</head>
+<body>
+
+	<!-- Barra de navegacion -->
+	<header th:replace="plantilla/template :: header"></header>
+
+	<!-- Contenido de la pagina -->
+	<div class="container">
+		<h1 th:text="${title}"></h1>
+	</div>
+
+	<div class="container">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Name Product</th>
+					<th scope="col">Description</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Price</th>
+					<th scope="col">Active</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cl:${products}">
+					<th scope="row" th:text="${cl.idPro}"></th>
+					<td th:text="${cl.namePro}"></td>
+					<td th:text="${cl.descriptionPro}"></td>
+					<td th:text="${cl.quantityPro}"></td>
+					<td th:text="${cl.pricePro}"></td>
+					<td th:text="${cl.activePro}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- Pie de pagina -->
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
