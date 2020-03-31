@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<!-- Required meta tags -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" type="text/css"
+	href="static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+
+<!-- Los iconos tipo Solid de Fontawesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+<body>
+
+	<!-- Barra de navegacion -->
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="#">MyLogo</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><a class="nav-link"
+							th:href="@{/app/home}">Inicio <span class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Usuarios</a></li>
+						<li class="nav-item"><a class="nav-link" href="/swagger-ui.html">Swagger</a></li>
+					</ul>
+					<!-- Button for exit to application -->
+					<!--  
+					<button class="btn btn-primary btn-sm" data-toggle="modal"
+						data-target=".bs-modal-sm"><i class="fas fa-sign-out-alt"></i>
+						Sign out</button>
+						-->
+					<a class="text-white" href="#bannerFormModal" data-toggle="modal" data-target="#bannerFormModal">
+					<i class="fas fa-sign-out-alt"></i> Sign out</a>
+					
+					<div class="modal fade bannerFormModal" tabindex="-1" role="dialog"
+						aria-hidden="true" aria-labelledby="bannerFormModal" id="bannerFormModal">
+						<div class="modal-dialog modal-sm">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4>
+										Logout <i class="fa fa-lock"></i>
+									</h4>
+								</div>
+								<div class="modal-body">
+									<i class="fa fa-question-circle"></i> Are you sure you want to
+									log-off?
+								</div>
+								<div class="modal-footer">
+									<a th:href="@{/logout}" class="btn btn-primary btn-block">Sing
+										out</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End button exit application -->
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Contenido de la pagina -->
+	<div class="container">
+		<div align="center">
+			<h3>E-reservation</h3>
+			<a href="/swagger-ui.html">Swagger</a>
+		</div>
+	</div>
+
+	<!-- Pie de pagina -->
+	<footer th:fragment="footer"
+		class="bg-dark text-center text-white fixed-bottom">
+
+		<div class="container">
+			<p>Copyright fambrosio &copy; 2020</p>
+		</div>
+
+		<script type="text/javascript"
+			th:src="@{/js/jquery-3.4.1.slim.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
