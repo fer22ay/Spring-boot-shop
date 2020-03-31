@@ -67,7 +67,7 @@ public class UserService {
 	 * @param identificacionUser
 	 * @return
 	 */
-	public Users findByIdentificacion(String idUser) {
+	public Users findByIdentificacion(Long idUser) {
 		return this.userRepository.findByIdUser(idUser);
 	}
 
