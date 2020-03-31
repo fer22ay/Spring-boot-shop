@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -33,8 +34,17 @@ public class Categoria implements Serializable {
 	 * Tags para generar automaticamente el ID en la base de datos PostgreSQL.
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "category_id_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "category_id_seq", sequenceName = "category_id_seq")
 	private Long idCategoria;
 	private String nombreCategoria;
 
 }
+
+
+
+
+
+
+
+
