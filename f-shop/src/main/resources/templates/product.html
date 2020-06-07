@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="plantilla/template :: head">
 <title>:: Products ::</title>
 </head>
@@ -26,13 +26,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="cl:${products}">
-					<th scope="row" th:text="${cl.idPro}"></th>
-					<td th:text="${cl.namePro}"></td>
-					<td th:text="${cl.descriptionPro}"></td>
-					<td th:text="${cl.quantityPro}"></td>
-					<td th:text="${cl.pricePro}"></td>
-					<td th:text="${cl.activePro}"></td>
+				<tr th:each="product : ${products}">
+					<th scope="row" th:text="${product.idPro}"></th>
+					<td th:text="${product.namePro}"></td>
+					<td th:text="${product.descriptionPro}"></td>
+					<td th:text="${product.quantityPro}"></td>
+					<td th:text="${product.pricePro}"></td>
+					<td th:text="${product.activePro}"></td>
 				</tr>
 			</tbody>
 		</table>

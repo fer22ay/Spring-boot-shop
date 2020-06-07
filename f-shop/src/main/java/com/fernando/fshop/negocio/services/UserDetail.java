@@ -24,35 +24,33 @@ import com.fernando.fshop.model.Users;
 import com.fernando.fshop.negocio.repository.UserRepository;
 
 /**
- * @author Fernando Ambrosio
+ * Clase que contiene metodo para autenticar usuario en la aplicacion
+ * 
+ * @author : Fernando Ambrosio
+ * @since : 05/04/2020
  *
  */
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class UserDetail implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		
-		Users users = userRepository.findByUserName(userName).orElseThrow(()-> new UsernameNotFoundException("Login Username Invalido."));
-		
-		
+
+		Users users = userRepository.findByUserName(userName)
+				.orElseThrow(() -> new UsernameNotFoundException("Login Username Invalido."));
+
 		Set<GrantedAuthority> grantList = new HashSet<GrantedAuthority>();
-		for(Role role : users.getRoles()) {
+		for (Role role : users.getRoles()) {
 			GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getDescripcionRol());
 			grantList.add(grantedAuthority);
 		}
-		
+
 		UserDetails userDet = new User(userName, users.getPasswordUser(), grantList);
 		return userDet;
 	}
-	
+
 }
-
-
-
-
-

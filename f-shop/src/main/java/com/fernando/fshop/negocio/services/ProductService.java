@@ -19,6 +19,7 @@ import com.fernando.fshop.negocio.repository.ProductRepository;
  *
  */
 @Service
+@Transactional(readOnly = true)
 public class ProductService {
 
 	private final ProductRepository productRepository;

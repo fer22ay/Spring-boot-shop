@@ -44,8 +44,10 @@
 						Sign out</button>
 						-->
 					<a class="text-white" href="#bannerFormModal" data-toggle="modal" data-target="#bannerFormModal">
-					<i class="fas fa-sign-out-alt"></i> Sign out</a>
-					
+					<button type="submit" class="btn btn-primary">
+					<i class="fas fa-sign-out-alt"></i> Sign out
+					</button>
+					</a>
 					<div class="modal fade bannerFormModal" tabindex="-1" role="dialog"
 						aria-hidden="true" aria-labelledby="bannerFormModal" id="bannerFormModal">
 						<div class="modal-dialog modal-sm">
@@ -53,15 +55,15 @@
 								<div class="modal-header">
 									<h4>
 										Logout <i class="fa fa-lock"></i>
-									</h4>
+									</h4> 
 								</div>
 								<div class="modal-body">
 									<i class="fa fa-question-circle"></i> Are you sure you want to
 									log-off?
 								</div>
 								<div class="modal-footer">
-									<a th:href="@{/logout}" class="btn btn-primary btn-block">Sing
-										out</a>
+									<a th:href="@{/logout}" class="btn btn-primary btn-block"> Sign out
+									</a>
 								</div>
 							</div>
 						</div>

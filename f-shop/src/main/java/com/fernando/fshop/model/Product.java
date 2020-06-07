@@ -4,11 +4,16 @@
 package com.fernando.fshop.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -32,8 +37,10 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 49383584883892985L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	/*
 	@GeneratedValue(generator = "product_id_seq", strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "product_id_seq", sequenceName = "product_id_seq")
+	@SequenceGenerator(name = "product_id_seq", sequenceName = "product_id_seq")*/
 	private Long idPro;
 	
 	private String namePro;
@@ -46,9 +53,10 @@ public class Product implements Serializable {
 	
 	private Boolean activePro;
 	
-	/**
-	 * Constructor vacio.
-	 */
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "idProvider")
+	private Provider provider;
+	
 	public Product() {
 		
 	}

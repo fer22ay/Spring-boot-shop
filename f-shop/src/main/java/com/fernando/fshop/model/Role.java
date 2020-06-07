@@ -5,6 +5,7 @@ package com.fernando.fshop.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,8 +37,9 @@ public class Role implements Serializable {
 	private static final long serialVersionUID = 363422571923148657L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idRol;
+	@GeneratedValue(generator = "system-uuid")
+	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
+	private String idRol;
 	
 	private String nameRol;
 	

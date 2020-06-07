@@ -22,6 +22,7 @@ class CategoriaTests {
 	@Autowired
 	private CategoriaService categoriaService;
 	
+	/*
 	@Test
 	public void createCategoria() {
 		Categoria categoria = new Categoria();
@@ -29,5 +30,5 @@ class CategoriaTests {
 		categoriaService.create(categoria);
 		assertThat(categoria.getIdCategoria()).isNotNull();
 	}
-
+*/
 }

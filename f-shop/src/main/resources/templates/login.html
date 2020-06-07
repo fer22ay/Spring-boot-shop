@@ -18,6 +18,7 @@
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -37,7 +38,9 @@
 							name="password" />
 					</div>
 					<button type="submit" class="btn btn-primary">
-						<i class="fas fa-sign-in-alt"></i> Ingresar
+						<i class="fas fa-sign-in-alt"></i> Sign in <i
+							class="fa fa-refresh fa-spin fa-3x fa-fw"></i> <span
+							class="sr-only">Loading...</span>
 					</button>
 				</form>
 				<div class="col-12 forgot">
@@ -48,7 +51,7 @@
 					Invalid username or password
 				</div>
 				<div th:if="${param.logout}" class="alert alert-success"
-					role="alert">You have been logged out
+					role="alert">You have been signed out
 				</div>
 			</div>
 		</div>
