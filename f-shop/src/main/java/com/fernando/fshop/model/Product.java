@@ -51,7 +51,7 @@ public class Product implements Serializable {
 	
 	private Float pricePro; 
 	
-	private Boolean activePro;
+	private Boolean activePro = true;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "idProvider")

@@ -55,7 +55,7 @@ public class ProductController {
 	@Autowired
 	private ReportService reportServie;
 
-	@GetMapping("/product")
+	@GetMapping(value = "/product")
 	public ModelAndView listProducts() {
 		ModelAndView mav = new ModelAndView();
 		log.info("Listando los productos");
@@ -65,6 +65,11 @@ public class ProductController {
 		mav.setViewName("product");
 		log.info("Termine de listar los productos");
 		return mav;
+	}
+	
+	@GetMapping(value = "/formProducto")
+	public String crearProducto() {
+		return "/formProducto";
 	}
 	
 }

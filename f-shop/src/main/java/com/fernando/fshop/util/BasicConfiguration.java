@@ -23,61 +23,41 @@ import com.fernando.fshop.negocio.services.UserDetail;
  */
 @Configuration
 @EnableWebSecurity
-public class BasicConfiguration extends WebSecurityConfigurerAdapter{
+public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetail userDetailsService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
-	
+
 	/**
 	 * Metodo para encripatr password en la base de datos
+	 * 
 	 * @return
 	 */
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-		return bCryptPasswordEncoder;	
+		return bCryptPasswordEncoder;
 	}
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(bcrypt);
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable()
-			.authorizeRequests()
-			.anyRequest().authenticated()
-			.and()
-		.formLogin()
-			.loginPage("/app/login").permitAll()
-			.failureUrl("/app/login?error=true")
-			.defaultSuccessUrl("/app/home",true)
-			.usernameParameter("username")
-			.passwordParameter("password")
-			.and()
-		.logout()
-			.permitAll()
-			.logoutSuccessUrl("/app/login?logout");
-	} 
+		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/app/login")
+				.permitAll().failureUrl("/app/login?error=true").defaultSuccessUrl("/app/home", true)
+				.usernameParameter("username").passwordParameter("password").and().logout().permitAll()
+				.logoutSuccessUrl("/app/login?logout");
+	}
 
-    @Override
-    public void configure(WebSecurity security) {
-        security.ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
-    }
-	
+	@Override
+	public void configure(WebSecurity security) {
+		security.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+	}
+
 }
-
-
-
-
-
-
-
-
-
-

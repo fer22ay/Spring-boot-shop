@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<title>:: Home ::</title>
+</head>
+<body>
+	<!-- Barra de navegacion -->
+	<header th:replace="plantilla/template :: header"></header>
+	<!-- Contenido de la pagina -->
+	<div class="container">
+
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white"></div>
+			<div class="card-boy">
+				<form>
+					<div class="form-group row">
+						<label class="col-md-2" for="namePro">Nombre Producto: </label> <input
+							type="text" class="form-control form-control-sm col-md-6"
+							id="namePro" placeholder="Nombre del producto">
+							<small></small>
+					</div>
+					<div class="form-group row">
+						<label class="col-md-2" for="descriptionPro">Descripcion:
+						</label> <input type="text" class="form-control form-control-sm col-md-6"
+							id="descriptionPro" placeholder="Descripcion del producto">
+							<small></small>
+					</div>
+					<div class="form-group row">
+						<label class="col-md-2" for="quantityPro">Cantidad: </label> <input
+							type="number" class="form-control form-control-sm col-md-6"
+							id="quantityPro" placeholder="Cantidad de producto">
+							<small></small>
+					</div>
+					<div class="form-group row">
+						<label class="col-md-2" for="pricePro">Precio: </label> <input
+							type="number" step="0.01"
+							class="form-control form-control-sm col-md-6" id="pricePro"
+							placeholder="0.00">
+							<small></small>
+					</div>
+					<div class="form-group row">
+						<label class="col-md-2" for="providers">Proveedores</label> <select
+							class="form-control form-control-sm col-md-6" id="providers">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+					<div class="card-footer bg-dark">
+					<input type="submit" class="btn btn-primary btn-sm" value="Guardar"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Pie de pagina -->
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
+
+
+
+
+

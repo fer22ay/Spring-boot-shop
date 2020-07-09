@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="plantilla/template :: head">
+    <title>User Information and Form</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,22 +15,23 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <title>User Information and Form</title>
   </head>
   <body>
-    
+	<!-- Barra de navegacion -->
+	<header th:replace="plantilla/template :: header"></header>
+	<!-- Contenido de la pagina -->  
 	<div class="container">
 		<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
 			<ul class="nav nav-tabs justify-content-end">
 				<li class="nav-item">
-					<a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls ="list" aria-selected="false">List</a>
+					<a class="nav-link" th:classappend="${listTab}" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="list-tab" data-toggle="tab" href="#form" role="tab" aria-controls ="form" aria-selected="true">Form</a>
+					<a class="nav-link" th:classappend="${formTab}" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Form</a>
 				</li>
 			</ul>
 			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+				<div class="tab-pane fade show" th:classappend="${listTab}" id="list" role="tabpanel" aria-labelledby="list-tab">
 					<div class="card">
 						<div class="card-header">
 							<h4>Roster</h4>
@@ -40,7 +42,7 @@
 					</div>
 				</div>
 				
-				<div class="tab-pane-fade" id="form" role="tabpanel" aria-labelledby="from-tab">
+				<div class="tab-pane fade show" th:classappend="${formTab}" id="form" role="tabpanel" aria-labelledby="form-tab">
 					<div class="card">
 						<div class="card-header">
 							<h4>User Information</h4>

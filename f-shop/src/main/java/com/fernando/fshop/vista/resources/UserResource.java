@@ -51,7 +51,7 @@ public class UserResource {
 	@ApiOperation(value = "Crear Usuario", notes = "Servicio para crear un nuevo usuario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario creado correctamente"),
 			@ApiResponse(code = 400, message = "Solicitud invalida") })
-	public ResponseEntity<Users> createUser(@RequestBody UserVO userVo) {
+	public ResponseEntity<Users> createUser(@RequestBody UserVO userVo) throws Exception {
 		Users users = new Users();
 		users.setFirstNameUser(userVo.getFirstNameUser());
 		users.setLastNameUser(userVo.getLastNameUser());
@@ -65,7 +65,7 @@ public class UserResource {
 	@ApiOperation(value = "Actualizar un usuario", notes = "Servicio para actualizar un usuario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario actualizado correctmente"),
 			@ApiResponse(code = 404, message = "Usuario no encontrado") })
-	public ResponseEntity<Users> updateUser(@PathVariable("idUser") Long idUser, UserVO userVo) {
+	public ResponseEntity<Users> updateUser(@PathVariable("idUser") String idUser, UserVO userVo) {
 		Users users = this.userService.findByIdentificacion(idUser);
 		if (users == null) {
 			return new ResponseEntity<Users>(HttpStatus.NOT_FOUND);
@@ -84,7 +84,7 @@ public class UserResource {
 	@ApiOperation(value = "Eliminar un usuario", notes = "Servicio para eliminar un usuario")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Usuario eliminado correctamente"),
 			@ApiResponse(code = 404, message = "Usuario no encontrado") })
-	public void removeUser(@PathVariable("idUser") Long idUser) {
+	public void removeUser(@PathVariable("idUser") String idUser) {
 		Users users = this.userService.findByIdentificacion(idUser);
 		if (users != null) {
 			this.userService.delete(users);

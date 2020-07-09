@@ -20,6 +20,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -47,6 +48,7 @@ public class Users implements Serializable {
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
 	private String idUser;
 	@NotBlank
+	@Size(min = 5, max = 10, message = "No cumple con los requisitos")
 	private String firstNameUser;
 	@NotBlank
 	private String lastNameUser;
@@ -57,7 +59,7 @@ public class Users implements Serializable {
 	@NotBlank
 	private String userName;
 	@NotBlank
-	private String passwordUser;
+	private String passwordUser = null;
 
 	/*
 	 * La etiqueta @Transient se utiliza para que jpa sepa que no debe tomarlo como
@@ -65,7 +67,6 @@ public class Users implements Serializable {
 	 * del usuario que esta ingresando sea la correcto de confirmacion.
 	 */
 	@Transient
-	@NotBlank
 	private String confirmPasswordUser;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
@@ -75,5 +76,12 @@ public class Users implements Serializable {
 	public Users() {
 
 	}
-
+	
+	public Users(String password) {
+		this.passwordUser = password;
+	}
+	
 }
+
+
+

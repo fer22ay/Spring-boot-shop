@@ -26,17 +26,17 @@ public class LoginController {
 	@GetMapping(value = {"/", "/login"})
 	public ModelAndView login() {
 		ModelAndView mav = new ModelAndView();
-		log.info("Enter main page.");
+		log.info("Ingrese a la pagina del login.");
 		String errorMessage = "Invalid username and password.";
 		mav.addObject("errorMsg", errorMessage);
 		mav.setViewName("login");
 		return mav;
 	}
 	
-	@GetMapping("/home")
+	@GetMapping(value = "/home")
 	public ModelAndView home() {
 		ModelAndView mav = new ModelAndView();
-		log.info("Displaying home page.");
+		log.info("Mostrando la pagina home.");
 		mav.setViewName("home");
 		return mav;
 	}

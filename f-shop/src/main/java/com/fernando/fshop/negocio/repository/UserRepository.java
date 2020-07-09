@@ -40,7 +40,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 	 * @param identificacionUser
 	 * @return
 	 */
-	public Users findByIdUser(Long idUser);
+	public Users findByIdUser(String idUser);
 
 	/**
 	 * Definicio de metodo para buscar al usuario por su nombre de usuario y

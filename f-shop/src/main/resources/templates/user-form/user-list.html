@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,33 +17,33 @@
     <title>User Information and Form</title>
   </head>
   <body>
-
-	<div class="table-responsive">
+  <div class="col-lg-12">
+	<div class="table-responsive table-hover">
 		<table id="userList"
-			class="table table-bordered table-hover table-striped">
+			class="table table-bordered table-hover table-striped" width="100%">
 			<thead class="thead-light">
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">First</th>
-					<th scope="col">Last</th>
-					<th scope="col">Username</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Username</th> 
 					<th scope="col">E-mail</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Fernando</td>
-					<td>Ambrosio</td>
-					<td>fernando</td>
-					<td>fernando@gmail.com</td>
-					<td><a href="#"><i class="fa fa-edit"></i></a> | <a href="#"><i
-							class="fa fa-user-times"></i></a></td>
+				<tr th:each="user : ${userList}">
+					<td th:text="${user.firstNameUser}"></td>
+					<td th:text="${user.lastNameUser}"></td>
+					<td th:text="${user.userName}"></td>
+					<td th:text="${user.emailUser}"></td>
+					<td>
+					<a href="#" th:href="@{'/app/editUser/' + ${user.idUser}}"><i class="fa fa-edit"></i></a> 
+					| <a href="#" onclick="'javascript:confirmDelete(\''+ ${user.idUser} +'\');'"><i class="fa fa-user-times"></i></a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-
+</div>
 </body>
 </html>

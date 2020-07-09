@@ -23,22 +23,16 @@ class FShopApplicationTests {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Autowired
-	private BCryptPasswordEncoder encoder;
-
 	/**
 	 * Prueba para consultar todos los registros de la tabla user. Y comprobar si la
 	 * tabla no esta vacia.
 	 */
 
-	@Test
-	public void testListUsers() {
-		List<Users> users = userRepository.findAll();
-		for (Users user : users) {
-			System.out.println(user);
-		}
-		assertThat(users).size().isGreaterThan(0);
-	}
+	/*
+	 * @Test public void testListUsers() { List<Users> users =
+	 * userRepository.findAll(); for (Users user : users) {
+	 * System.out.println(user); } assertThat(users).size().isGreaterThan(0); }
+	 */
 
 	/**
 	 * Prueba para insertar un registro en la tabla user. assertTrue verifica que el

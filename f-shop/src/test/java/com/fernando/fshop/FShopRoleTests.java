@@ -31,14 +31,11 @@ public class FShopRoleTests {
 	/**
 	 * Prueba para listar los datos de la tabla Role de la base de datos.
 	 */
-	@Test
-	public void testListRoles() {
-		List<Role> roles = roleRepository.findAll();
-		for (Role role : roles) {
-			System.out.println(role);
-		}
-		assertThat(roles).size().isGreaterThan(0);
-	}
+	/*
+	 * @Test public void testListRoles() { List<Role> roles =
+	 * roleRepository.findAll(); for (Role role : roles) { System.out.println(role);
+	 * } assertThat(roles).size().isGreaterThan(0); }
+	 */
 
 	/**
 	 * Prueba para insertar un registro en la tabla role

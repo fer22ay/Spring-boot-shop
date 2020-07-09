@@ -34,15 +34,10 @@
 						<li class="nav-item active"><a class="nav-link"
 							th:href="@{/app/home}">Inicio <span class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Usuarios</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/app/userForm}">Usuarios</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/app/product}">Productos</a></li>
 						<li class="nav-item"><a class="nav-link" href="/swagger-ui.html">Swagger</a></li>
 					</ul>
-					<!-- Button for exit to application -->
-					<!--  
-					<button class="btn btn-primary btn-sm" data-toggle="modal"
-						data-target=".bs-modal-sm"><i class="fas fa-sign-out-alt"></i>
-						Sign out</button>
-						-->
 					<a class="text-white" href="#bannerFormModal" data-toggle="modal" data-target="#bannerFormModal">
 					<button type="submit" class="btn btn-primary">
 					<i class="fas fa-sign-out-alt"></i> Sign out

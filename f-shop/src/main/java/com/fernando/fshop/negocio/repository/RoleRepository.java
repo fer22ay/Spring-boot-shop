@@ -16,7 +16,7 @@ import com.fernando.fshop.model.Role;
  *
  */
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface RoleRepository extends JpaRepository<Role, String> {
 
 	/**
 	 * Definicion de metodo para consultar un role por su nombre
@@ -32,6 +32,6 @@ public interface RoleRepository extends JpaRepository<Role, Long> {
 	 * @param idRol
 	 * @return
 	 */
-	public Role findByIdRol(Long idRol);
+	public Role findByIdRol(String idRol);
 
 }
